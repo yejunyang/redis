@@ -31,6 +31,10 @@ public class Operate {
         return jedisCluster.get(setName);
     }
 
+    public byte[] getSetForBit(JedisCluster jedisCluster,String setName){
+        return jedisCluster.get(setName.getBytes());
+    }
+
     public Long setList(JedisCluster jedisCluster, String listName, String[] values){
         Long result = jedisCluster.lpush(listName, values);
         System.out.println("push list result:" + result);
